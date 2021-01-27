@@ -98,6 +98,25 @@ INSERT INTO INSCRITOS VALUES(NULL, 'Erro comum', 'erro_comum@teste.com', '+5523 
 
 /***************************************************************************************************/
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 SELECT * FROM INSCRITOS
 LIMIT 15;
 
