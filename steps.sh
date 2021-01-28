@@ -24,6 +24,9 @@ $ conda activate py3-API
 
 $ conda install mysql-connector-python
 
+### Verificar as instalações:
+
+$ conda list
 
 
 ###############################################################
