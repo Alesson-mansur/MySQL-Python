@@ -22,6 +22,14 @@ def show_tabs(curs):
 show_tabs(mycursor)
 print()
 
+# Fecha/encerra o ponteiro de conexão com o banco
+mycursor.close()
+
+# Fecha a conexão com o banco
+dbapi.close()
+
+# Encerra conexões com o banco
+exit()
 
 # Descrição das características e elementos da tabela
 #def desc_tabs(curs,tab:str):
@@ -36,14 +44,7 @@ print()
 #desc_tabs(mycursor,'TEMAS')
 #print()
 
-# Fecha/encerra o ponteiro de conexão com o banco
-mycursor.close()
 
-# Fecha a conexão com o banco
-dbapi.close()
-
-# Encerra conexões com o banco
-exit()
 
 
 ## Retorna o ID de um tópico dado um nome de tópico

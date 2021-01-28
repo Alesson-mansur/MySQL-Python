@@ -24,14 +24,22 @@ $ conda activate py3-API
 
 $ conda install mysql-connector-python
 
+
+
+###############################################################
+####  Os passos seguintes referem-se às bibliotecas da API ####
+###############################################################
+
+
+
 ###  Instalar o Virtualenv
 
 $ conda install virtualenv
 
 ### Criar e navegar até a pasta em que a API vai rodar:
 
-$ mkdir py-mysql
-$ cd py-mysql/
+$ mkdir 3.FlaskAPI
+$ cd 3.FlaskAPI/
 
 ### Criar as dependências para o virtualenv: 
 
@@ -41,12 +49,14 @@ $ virtualenv .venv
 
 $ conda install flask
 
-### Criar arquivo para adicionar a(s) dependência(s) do flask caso haja alguma outra dependência
+### Criar arquivo para adicionar a(s) dependência(s) 
+### do flask caso haja alguma outra dependência
 
 $ touch requirements.txt
 
 $ conda list
-### Copiar a versão do flask pelo conda list e colar no arquivo requirements.txt no formato flask==X.X.X
+### Copiar a versão do flask pelo conda list e 
+### colar no arquivo requirements.txt no formato flask==X.X.X
 
 
 
