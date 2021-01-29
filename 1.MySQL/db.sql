@@ -32,11 +32,6 @@ SHOW GRANTS FOR 'userapi'@'localhost';
 
 /* Modelagem lógica */
 
-/* Suponha que você gerencia um blog de conteúdos relacionados à programação. E as pessoas 
-se inscrevem na newsletter para receber conteúdos direcionados aos seus interesses.
-Ao se inscrever o usuário fornece o nome, um email de contato, um número de telefone e 
-precisa indicar quais são os temas que ele tem interesse.
-
 TABELA TEMAS: (Assuntos dos conteúdos disponíveis)
 TEMA CARACTER (15)
 
@@ -54,7 +49,7 @@ ID_TEMA (chave estrangeira)  */
 
 /***************************************************************************************************/
 
-/* Criando a primeira tabela */
+/* Criando as primeiras tabelas */
 
 USE MYBLOG;
 
@@ -99,24 +94,6 @@ INSERT INTO INSCRITOS VALUES(NULL, 'Erro comum', 'erro_comum@teste.com', '+5523 
 /***************************************************************************************************/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 SELECT * FROM INSCRITOS
 LIMIT 15;
 
@@ -135,8 +112,6 @@ FROM INSCRITOS INSC
 LIMIT 20;
 
 
-
-
 /* Relacionando os inscritos aos seus temas de interesse */
 
 SELECT INSC.NOME AS Nome,
@@ -147,9 +122,6 @@ LEFT JOIN TEMAS TM ON RE.ID_TEMA = TM.IDTEMA
 LEFT JOIN RELACIONA RE ON RE.ID_INSCRITO = INSC.IDINSCRITO
 WHERE TM.IDTEMA = 3 OR TM.IDTEMA = 5
 ORDER BY INSC.NOME;
-
-
-
 
 
 /* Removendo o nome do tema, agrupando por nome e email e removendo usuário teste */
@@ -187,10 +159,6 @@ AND TM.TEMA LIKE 'C%' OR TM.TEMA = 'Rubi%'
 GROUP BY INSC.NOME,
          INSC.EMAIL
 ORDER BY INSC.NOME;
-
-
-
-
 
 
 /*--------------------------------------------------------------------------------
