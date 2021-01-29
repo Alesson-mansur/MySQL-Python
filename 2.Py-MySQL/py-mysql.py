@@ -1,5 +1,6 @@
 import mysql.connector
 
+# Estabelecendo a autenticação com o banco
 dbapi = mysql.connector.connect(
 	host='127.0.0.1',
 	user='userdb',
@@ -7,26 +8,32 @@ dbapi = mysql.connector.connect(
 	database='MYBLOG'
 	)
 
+# Definindo o ponteiro (cursor) que executará os comandos no banco
 mycursor = dbapi.cursor()
 
-#def show_tabs(curs):
-#	sql = 'SHOW TABLES'
-#	curs.execute(sql)
-#	for x in curs:
-#		print(x)
 
-#show_tabs(mycursor)
-#print()
-#
-#
-#def desc_tabs(curs,tab:str):
-#	curs.execute('DESCRIBE {}'.format(tab))
-#	for x in curs:
-#		print(x)
-#
-#desc_tabs(mycursor, 'INSCRITOS')
-#print()
+# Show tables
+def show_tabs(curs):
+	sql = 'SHOW TABLES'
+	curs.execute(sql)
+	for x in curs:
+		print(x)
 
+show_tabs(mycursor)
+print()
+
+
+# Describe Tables
+def desc_tabs(curs,tab:str):
+	curs.execute('DESCRIBE {}'.format(tab))
+	for x in curs:
+		print(x)
+
+desc_tabs(mycursor, 'INSCRITOS')
+print()
+
+
+# Método que retorna os inscritos com interesse em um tema dado um id de um tema existente
 def inscritos_tema(curs,tema_id:int):
 	sql = 'SELECT INSC.NOME AS Nome, INSC.EMAIL AS Email\
            FROM INSCRITOS INSC LEFT JOIN RELACIONA RE ON RE.ID_INSCRITO = INSC.IDINSCRITO\
@@ -49,7 +56,7 @@ print(aux)
 print()
 
 
-
+# Método que retorna o nome do tema e sua id dada uma id de um tema existente
 def temas_ids(curs,var:int):
 	sql = 'SELECT TM.IDTEMA AS id, TM.TEMA AS TEMA FROM TEMAS TM\
 	       WHERE TM.IDTEMA = {p}'.format(p=var)
@@ -68,14 +75,11 @@ print(aux2)
 print()
 
 
-sql = 'INSERT INTO INSCRITOS (NOME, EMAIL, TELEFONE) VALUES (%s, %s, %s)'
-val = ('John Locke', 'highway2@locke.com', '19 88945 6110')
-mycursor.execute(sql, val)
-dbapi.commit()
-
-
+# Fecha o cursor
 mycursor.close()
 
+# Encerra a conexão com o banco
 dbapi.close()
 
+# Finaliza o programa
 exit()
